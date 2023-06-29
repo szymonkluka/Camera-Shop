@@ -1,0 +1,13 @@
+.header-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item {
+  font-size: 30px;
+}
+
+.header-center {
+  font-size: 35px;
+}

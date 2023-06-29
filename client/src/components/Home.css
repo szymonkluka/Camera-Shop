@@ -1,0 +1,127 @@
+.custom-controls .carousel-control-prev-icon,
+.custom-controls .carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  /* Add transparent border */
+  background-image: none;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.custom-controls .carousel-control-next-icon:after {
+  content: '>';
+  font-size: 55px;
+  color: red;
+}
+
+.custom-controls .carousel-control-next:hover .carousel-control-next-icon:after {
+  content: '>';
+  font-size: 55px;
+  color: black;
+}
+
+.custom-controls .carousel-control-next:hover .carousel-control-next-icon {
+  background-color: red;
+  border-color: red;
+  border: 1px solid black;
+  /* Add border on hover */
+}
+
+.custom-controls .carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: red;
+}
+
+.custom-controls .carousel-control-prev:hover .carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: black;
+}
+
+.custom-controls .carousel-control-prev:hover .carousel-control-prev-icon {
+  background-color: red;
+  border-color: red;
+  border: 1px solid black;
+  /* Add border on hover */
+}
+
+.custom-down-arrow {
+  height: auto;
+  width: auto;
+  outline: black;
+  border: none;
+  background: none;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.custom-down-arrow.hidden {
+  display: none;
+}
+
+.discover.hidden {
+  display: none;
+}
+
+.custom-down-arrow:after {
+  margin-top: 0px;
+  padding-top: 0px;
+  content: '⬇️';
+  font-size: 65px;
+  margin-bottom: 25px;
+}
+
+.carousel-inner {
+  transition: 0.5s ease-in-out;
+}
+
+carousel-item {
+  display: none;
+}
+
+carousel-item.active {
+  display: block;
+}
+
+.discover {
+  margin-bottom: -5px;
+  padding-bottom: -5px;
+  /* Adjust the desired margin value */
+}
+
+.custom-down-arrow {
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 60px;
+  /* Adjust the desired margin value */
+}
+
+.carousel-item {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 879px) {
+  .carousel-item {
+    background-image: ('/assets/images/home/africa.jpg');
+  }
+}
+
+@media (min-width: 880px) {
+  .carousel-item {
+    background-image: ('/assets/images/home/purecolor.jpg');
+  }
+}

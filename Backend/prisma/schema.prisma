@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  price       Int
+  description String
+  img         Image[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  orders      Order[] // Add a relation field in the Product model
+}
+
+model Image {
+  id        String  @id @default(uuid())
+  url       String
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Order {
+  id              String    @id @default(uuid())
+  products        Product[] // Change from "productId" to "products" to support multiple products in an order
+  totalPrice      Float     @default(0)
+  firstName       String
+  lastName        String
+  country         String
+  city            String
+  zip             String
+  street          String
+  apartmentNumber String
+  paymentType     String
+  cardName        String
+  cardNumber      String
+  cardExpiration  String
+  cardCVV         String
+  comment         String
+  description     String
+  telephone       String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
