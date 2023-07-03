@@ -91,7 +91,7 @@ const Checkout = () => {
 
             console.log('Data to send:', dataToSend);
 
-            fetch('http://localhost:8000/api/orders', {
+            fetch('https://camsshop.onrender.com/api/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
