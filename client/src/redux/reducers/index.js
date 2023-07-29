@@ -3,7 +3,7 @@ import addItems from "./addItem";
 
 
 const rootReducers = combineReducers({
-    addItem: addItems, // Use the reducer as 'addItem'
+    addItem: addItems
 });
 
 export default rootReducers;

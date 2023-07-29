@@ -1,0 +1,31 @@
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+th:first-child {
+  width: 30%;
+  text-align: center;
+}
+
+th:last-child {
+  width: 50%;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+  height: 20px;
+}
+
+tr {
+  height: 20px;
+}

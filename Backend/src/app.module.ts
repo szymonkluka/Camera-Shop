@@ -6,6 +6,9 @@ import { OrdersModule } from './orders/orders.module';
 import { ImagesModule } from './images/images.model';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { AuthModule } from './auth/auth.module';
+import { config } from 'dotenv';
+config();
 
 @Module({
   imports: [
@@ -15,6 +18,7 @@ import { join } from 'path';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '..', 'client', 'build'),
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

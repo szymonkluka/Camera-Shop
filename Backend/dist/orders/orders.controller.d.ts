@@ -1,8 +1,10 @@
 import { OrdersService } from './orders.service';
 import { Order } from '.prisma/client';
+import { EmailService } from '../shared/services/email.service';
 export declare class OrdersController {
     private ordersService;
-    constructor(ordersService: OrdersService);
+    private emailService;
+    constructor(ordersService: OrdersService, emailService: EmailService);
     getAll(): any;
     getById(id: string): Promise<{
         id: string;
@@ -24,6 +26,7 @@ export declare class OrdersController {
         cardCVV: string;
         comment: string;
         telephone: string;
+        email: string;
     } & {}>;
     create(orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>): Promise<{
         id: string;
@@ -45,7 +48,14 @@ export declare class OrdersController {
         cardCVV: string;
         comment: string;
         telephone: string;
+        email: string;
     } & {}>;
+    sendOrderEmail(emailData: {
+        email: string;
+        orderData: any;
+    }): Promise<{
+        message: string;
+    }>;
     deleteById(id: string): Promise<{
         message: string;
     }>;

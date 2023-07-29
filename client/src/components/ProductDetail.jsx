@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem, delItem } from '../redux/actions';
 import { fetchProducts, fetchImages } from '../redux/actions';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import './ProductDetail.css';
+import Footer from './Footer';
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -14,11 +16,16 @@ const ProductDetail = () => {
     const products = useSelector((state) => state.addItem.products);
     const images = useSelector((state) => state.addItem.images);
     const [loading, setLoading] = useState(true);
+    const carouselRef = useRef(null);
 
     useEffect(() => {
         dispatch(fetchProducts()).then(() => setLoading(false));
         dispatch(fetchImages());
+
+        // Add the hover effect when the component mounts
+        carouselRef.current && carouselRef.current.classList.add('hover-effect');
     }, [dispatch]);
+
 
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -57,10 +64,7 @@ const ProductDetail = () => {
     };
 
     const handleSummaryCart = () => {
-        // Calculate total cart quantity
         const totalCartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
-
-        // Navigate to the cart page with the total cart quantity
         history.push({ pathname: '/cart', state: { totalCartQuantity } });
     };
 
@@ -83,37 +87,56 @@ const ProductDetail = () => {
 
     return (
         <>
-            <div className="container my-5 py-2">
+            <div className="container my-5 py-4">
+
                 <div className="row">
-                    <div className="col-md-5 d-flex flex-column justify-content-center" style={{ marginRight: '80px' }}>
+                    <div className={`col-md-${window.innerWidth <= 991 && window.innerWidth >= 768 ? '12' : '5'}`} style={{ marginRight: '80px' }}>
                         <div className="mt-2 d-flex flex-wrap position-relative" style={{ marginRight: '5px', paddingRight: '10px' }}>
-                            <Carousel
-                                showThumbs={false}
-                                showArrows={true}
-                                showStatus={true}
-                                infiniteLoop={true}
-                                autoPlay={true}
-                                interval={3000}
-                                width="100%"
-                            >
-                                {imageUnderDescription.map((image) => (
-                                    <div key={image.id}>
-                                        <img
-                                            src={image.url}
-                                            alt={product.name}
-                                            className="product-image"
-                                            style={{ objectFit: 'cover', width: '100%', height: '320px' }}
-                                        />
-                                    </div>
-                                ))}
-                            </Carousel>
+                            <div className="hover-effect" ref={carouselRef}>
+                                <Carousel
+                                    showThumbs={false}
+                                    showArrows={true}
+                                    showStatus={true}
+                                    infiniteLoop={true}
+                                    autoPlay={true}
+                                    interval={3000}
+                                    width="95%"
+                                    className="carousel"
+                                    renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                                        hasPrev && (
+                                            <button className="custom-carousel-prev-arrow custom-controls carousel-control-prev" onClick={onClickHandler}>
+                                                <span className="custom-arrow-icon">&lt;</span>
+                                            </button>
+                                        )
+                                    }
+                                    renderArrowNext={(onClickHandler, hasNext, label) =>
+                                        hasNext && (
+                                            <button className="custom-carousel-next-arrow custom-controls carousel-control-next" onClick={onClickHandler}>
+                                                <span className="custom-arrow-icon">&gt;</span>
+                                            </button>
+                                        )
+                                    }
+
+                                >
+                                    {imageUnderDescription.map((image) => (
+                                        <div key={image.id}>
+                                            <img
+                                                src={image.url}
+                                                alt={product.name}
+                                                className="product-image"
+                                                style={{ objectFit: 'cover', width: '100%', height: '380px' }}
+                                            />
+                                        </div>
+                                    ))}
+                                </Carousel>
+                            </div>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <h3 style={{ marginLeft: '10px' }}>{product.name}</h3>
                             <p style={{ marginLeft: '10px' }}>{product.description}</p>
-                            <h5 className="mt-2" style={{ marginLeft: '10px' }}>Price: {product.price}</h5>
+                            <h5 className="mt-1" style={{ marginLeft: '10px' }}>Price: {product.price}</h5>
                             <h5 className="mt-2" style={{ marginLeft: '10px' }}>Quantity: {productQuantity}</h5>
                             <div className="d-flex justify-content-center">
                                 <button
@@ -141,7 +164,7 @@ const ProductDetail = () => {
                                 <button
                                     onClick={handleSummaryCart}
                                     className="btn btn-success btn-sm mt-3 smaller-button"
-                                    style={{ width: '300px', marginBottom: '80px' }}
+                                    style={{ width: '300px', marginBottom: '20px' }}
                                 >
                                     {summaryBtn}
                                 </button>
@@ -150,6 +173,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 };

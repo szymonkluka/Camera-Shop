@@ -1,0 +1,14 @@
+@media(620px) {
+  .btn-custom {
+    max-width: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .container {
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

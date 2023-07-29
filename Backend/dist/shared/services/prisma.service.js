@@ -12,6 +12,7 @@ const client_1 = require("@prisma/client");
 let PrismaService = class PrismaService extends client_1.PrismaClient {
     async onModuleInit() {
         await this.$connect();
+        this.userAccessor = this.users;
     }
     async enableShutdownHooks(app) {
         this.$on('beforeExit', async () => {

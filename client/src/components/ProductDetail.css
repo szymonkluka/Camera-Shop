@@ -2,3 +2,78 @@
   height: 200px;
   width: 200px;
 }
+
+.carousel .dot {
+  color: black;
+}
+
+.custom-carousel-prev-arrow,
+.custom-carousel-next-arrow {
+  height: 60px;
+  width: 60px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: blue !important;
+  border-radius: 50%;
+  opacity: 1.0;
+}
+
+.custom-carousel-prev-arrow:hover,
+.custom-carousel-next-arrow:hover {
+  background-color: green !important;
+}
+
+.custom-arrow-icon {
+  font-size: 32px;
+  color: lightblue !important;
+  background-color: blue !important;
+  border-radius: 50%;
+  height: 47px;
+  width: 47px;
+  font-weight: bold;
+  opacity: 1.0;
+}
+
+.custom-arrow-icon:hover {
+
+  background-color: green !important;
+}
+
+.product-image {
+  height: 200px;
+  width: 200px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container.my-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row {
+    width: 100%;
+  }
+
+  .col-md-5,
+  .col-md-6 {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .col-md-12 {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}

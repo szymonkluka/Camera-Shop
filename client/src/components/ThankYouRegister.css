@@ -1,0 +1,47 @@
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+th:first-child {
+  width: 30%;
+  text-align: center;
+}
+
+th:last-child {
+  width: 50%;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+  height: 20px;
+}
+
+tr {
+  height: 20px;
+}
+
+ul {
+  list-style: none;
+  /* Hide the bullet points */
+  padding-left: 0;
+  /* Remove any default padding */
+}
+
+.checkmark {
+  margin-right: 8px;
+  /* Add spacing between the checkmark and the text */
+  font-size: 18px;
+  /* Adjust the font size of the checkmark */
+  color: green;
+  /* Adjust the color of the checkmark */
+}

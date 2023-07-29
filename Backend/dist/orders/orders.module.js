@@ -11,11 +11,12 @@ const common_1 = require("@nestjs/common");
 const orders_service_1 = require("./orders.service");
 const orders_controller_1 = require("./orders.controller");
 const prisma_service_1 = require("../shared/services/prisma.service");
+const email_service_1 = require("../shared/services/email.service");
 let OrdersModule = class OrdersModule {
 };
 OrdersModule = __decorate([
     (0, common_1.Module)({
-        providers: [orders_service_1.OrdersService, prisma_service_1.PrismaService],
+        providers: [orders_service_1.OrdersService, prisma_service_1.PrismaService, email_service_1.EmailService],
         controllers: [orders_controller_1.OrdersController],
     })
 ], OrdersModule);

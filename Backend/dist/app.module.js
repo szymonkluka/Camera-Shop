@@ -15,6 +15,9 @@ const orders_module_1 = require("./orders/orders.module");
 const images_model_1 = require("./images/images.model");
 const serve_static_1 = require("@nestjs/serve-static");
 const path_1 = require("path");
+const auth_module_1 = require("./auth/auth.module");
+const dotenv_1 = require("dotenv");
+(0, dotenv_1.config)();
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -26,6 +29,7 @@ AppModule = __decorate([
             serve_static_1.ServeStaticModule.forRoot({
                 rootPath: (0, path_1.join)(__dirname, '..', '..', 'client', 'build'),
             }),
+            auth_module_1.AuthModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

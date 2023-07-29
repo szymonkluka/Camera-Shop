@@ -25,7 +25,7 @@ export interface Order {
     cardExpiration: string;
     cardCVV: string;
 }
-type DBData = {
+declare type DBData = {
     products: Product[];
     orders: Order[];
 };

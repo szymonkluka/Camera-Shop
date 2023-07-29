@@ -3,10 +3,14 @@ import { OrdersService } from './orders.service';
 import { ParseUUIDPipe } from '@nestjs/common';
 import { NotFoundException } from '@nestjs/common';
 import { Order } from '.prisma/client';
+import { EmailService } from '../shared/services/email.service';
 
 @Controller('orders')
 export class OrdersController {
-  constructor(private ordersService: OrdersService) { }
+  constructor(
+    private ordersService: OrdersService,
+    private emailService: EmailService,
+  ) { }
 
   @Get('/')
   getAll(): any {
@@ -23,6 +27,16 @@ export class OrdersController {
   @Post('/')
   create(@Body() orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>) {
     return this.ordersService.create(orderData);
+  }
+
+  @Post('/send-email')
+  async sendOrderEmail(@Body() emailData: { email: string; orderData: any }) {
+    const { email, orderData } = emailData;
+
+    // Use the EmailService to send the email
+    await this.emailService.sendOrderEmail(email, orderData);
+
+    return { message: 'Email sent successfully' };
   }
 
   @Delete('/:id')

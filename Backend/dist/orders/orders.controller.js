@@ -17,9 +17,11 @@ const common_1 = require("@nestjs/common");
 const orders_service_1 = require("./orders.service");
 const common_2 = require("@nestjs/common");
 const common_3 = require("@nestjs/common");
+const email_service_1 = require("../shared/services/email.service");
 let OrdersController = class OrdersController {
-    constructor(ordersService) {
+    constructor(ordersService, emailService) {
         this.ordersService = ordersService;
+        this.emailService = emailService;
     }
     getAll() {
         return this.ordersService.getAll();
@@ -32,6 +34,11 @@ let OrdersController = class OrdersController {
     }
     create(orderData) {
         return this.ordersService.create(orderData);
+    }
+    async sendOrderEmail(emailData) {
+        const { email, orderData } = emailData;
+        await this.emailService.sendOrderEmail(email, orderData);
+        return { message: 'Email sent successfully' };
     }
     async deleteById(id) {
         const deletedOrder = await this.ordersService.deleteById(id);
@@ -61,6 +68,13 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], OrdersController.prototype, "create", null);
 __decorate([
+    (0, common_1.Post)('/send-email'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], OrdersController.prototype, "sendOrderEmail", null);
+__decorate([
     (0, common_1.Delete)('/:id'),
     __param(0, (0, common_1.Param)('id', new common_2.ParseUUIDPipe())),
     __metadata("design:type", Function),
@@ -69,7 +83,8 @@ __decorate([
 ], OrdersController.prototype, "deleteById", null);
 OrdersController = __decorate([
     (0, common_1.Controller)('orders'),
-    __metadata("design:paramtypes", [orders_service_1.OrdersService])
+    __metadata("design:paramtypes", [orders_service_1.OrdersService,
+        email_service_1.EmailService])
 ], OrdersController);
 exports.OrdersController = OrdersController;
 //# sourceMappingURL=orders.controller.js.map

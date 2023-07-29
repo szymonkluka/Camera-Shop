@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import './Checkout.css'
 
 
 const Checkout = () => {
@@ -24,10 +25,27 @@ const Checkout = () => {
         cardNumber: '',
         cardExpiration: '',
         cardCVV: '',
-        telephone: '', // Added field
-        description: '', // Added field
-        comment: '' // Added field
+        telephone: '',
+        email: '',
+        comment: ''
     });
+
+    useEffect(() => {
+        const savedUserData = JSON.parse(localStorage.getItem('registerData'));
+        if (savedUserData) {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                firstName: savedUserData.firstName,
+                lastName: savedUserData.lastName,
+                country: savedUserData.country,
+                city: savedUserData.city,
+                zip: savedUserData.zip,
+                street: savedUserData.street,
+                apartmentNumber: savedUserData.apartmentNumber,
+                telephone: savedUserData.telephone,
+            }));
+        }
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -61,6 +79,7 @@ const Checkout = () => {
         setFormSubmitted(true); // Set formSubmitted to true on submit
         const itemNames = cartItems.map((item) => item.name);
         const description = itemNames.join(', ');
+
         // Check if all required fields are filled
         const isFormValid = Object.values(formData).every((value) => value !== '');
 
@@ -79,24 +98,24 @@ const Checkout = () => {
                 cardNumber: formData.cardNumber,
                 cardExpiration: formData.cardExpiration,
                 cardCVV: formData.cardCVV,
-                telephone: formData.telephone, // Added field
-                description: description, // Added field
-                comment: formData.comment // Added field
+                telephone: formData.telephone,
+                description: description,
+                comment: formData.comment,
+                email: formData.email,
             };
 
             const dataToSend = {
                 totalPrice: totalPrice,
-                ...order
+                ...order,
             };
 
-            console.log('Data to send:', dataToSend);
-
-            fetch('https://camsshop.onrender.com/api/orders', {
+            // Send the order data to the server
+            fetch('http://localhost:8000/api/orders', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(dataToSend)
+                body: JSON.stringify(dataToSend),
             })
                 .then((response) => response.json())
                 .then((data) => {
@@ -114,9 +133,32 @@ const Checkout = () => {
                         cardNumber: '',
                         cardExpiration: '',
                         cardCVV: '',
-                        telephone: '', // Add telephone field
-                        comment: '', // Add comment field
+                        telephone: '',
+                        comment: '',
+                        email: '',
                     });
+
+                    // Send the order data to the email address
+                    fetch('http://localhost:8000/api/orders/send-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: formData.email,
+                            orderData: data,
+                        }),
+                    })
+                        .then((response) => response.json())
+                        .then((response) => {
+                            console.log('Email sent:', response);
+                            // Handle email sent successfully
+                        })
+                        .catch((error) => {
+                            console.error('Error sending email:', error);
+                            // Handle email sending error
+                        });
+
                     localStorage.setItem('orderData', JSON.stringify(data));
                     window.location.href = '/thankyou';
                 })
@@ -171,33 +213,33 @@ const Checkout = () => {
                     <div className="col-md-7 col-lg-8">
                         <h4 className="mb-3">Billing address</h4>
                         <form onSubmit={handleSubmit}>
-                            <div className="row g-3">
-                                <div className="col-sm-6">
+                            <div className="row g-3 col-xs-3">
+                                <div className="col-sm-6 col-md-6">
                                     <label htmlFor="firstName" className="form-label">First Name</label>
                                     <input type="text" className="form-control" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
                                 </div>
 
-                                <div className="col-sm-6">
+                                <div className="col-sm-6 col-md-6">
                                     <label htmlFor="lastName" className="form-label">Last Name</label>
                                     <input type="text" className="form-control" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required />
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 col-md-6">
                                     <label htmlFor="country" className="form-label">Country</label>
                                     <input type="text" className="form-control" id="country" name="country" value={formData.country} onChange={handleChange} required />
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 col-md-6">
                                     <label htmlFor="city" className="form-label">City</label>
                                     <input type="text" className="form-control" id="city" name="city" value={formData.city} onChange={handleChange} required />
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 col-md-6">
                                     <label htmlFor="zip" className="form-label">ZIP Code</label>
                                     <input type="text" className="form-control" id="zip" name="zip" value={formData.zip} onChange={handleChange} required />
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 col-md-6">
                                     <label htmlFor="street" className="form-label">Street</label>
                                     <input type="text" className="form-control" id="street" name="street" value={formData.street} onChange={handleChange} required />
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 col-md-6">
                                     <label htmlFor="apartmentNumber" className="form-label">Apartment Number</label>
                                     <input type="text" className="form-control" id="apartmentNumber" name="apartmentNumber" value={formData.apartmentNumber} onChange={handleChange} required />
                                 </div>
@@ -216,24 +258,11 @@ const Checkout = () => {
                                     />
                                     <div className="invalid-feedback">Telephone is required</div>
                                 </div>
-
-                                <div className="col-md-6">
-                                    <label htmlFor="description" className="form-label">
-                                        Description
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="description"
-                                        name="description"
-                                        value={formData.description}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                    <div className="invalid-feedback">Description is required</div>
+                                <div className="col-sm-6">
+                                    <label htmlFor="email" className="form-label">Email</label>
+                                    <input type="text" className="form-control" id="email" name="email" value={formData.email} onChange={handleChange} required />
                                 </div>
-
-                                <div className="col-md-6">
+                                <div className="col-md-12">
                                     <label htmlFor="comment" className="form-label">
                                         comment
                                     </label>

@@ -43,10 +43,13 @@ const addItems = (state = initialState, action) => {
         }
 
 
-        case 'FETCH_PRODUCTS':
-            return { ...state, products: action.payload };
-        default:
-            return state;
+        case 'FETCH_PRODUCTS': {
+            return { ...state, products: action.payload }
+        }
+
+        default: return state
+
+
     }
 };
 

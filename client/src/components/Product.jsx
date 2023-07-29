@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts, fetchImages } from '../redux/actions';
+import Footer from './Footer';
 
 const Product = () => {
     const products = useSelector((state) => state.addItem.products);
@@ -45,6 +46,7 @@ const Product = () => {
                     {products && products.map(cardItem)} {/* Add conditional check before rendering products */}
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

@@ -1,13 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Merriweather:wght@300&display=swap');
+
 .header-center {
   flex-grow: 1;
   display: flex;
   justify-content: center;
 }
 
-.nav-item {
-  font-size: 30px;
+.custom-nav .nav-link {
+  font-size: 22px;
+  /* Adjust the font size as needed */
 }
 
-.header-center {
-  font-size: 35px;
+.header-center .photo-gear-text {
+  font-size: 28px;
+  text-decoration: none;
+
+
+}
+
+
+@media (max-width: 599px) {
+
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+  }
+
 }

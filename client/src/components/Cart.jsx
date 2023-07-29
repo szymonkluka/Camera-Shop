@@ -4,6 +4,7 @@ import { delItem } from '../redux/actions';
 import { Link } from 'react-router-dom';
 import { fetchProducts, fetchImages } from '../redux/actions';
 import './Cart.css';
+import Footer from './Footer';
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.addItem.cartItems);
@@ -34,16 +35,18 @@ const Cart = () => {
         const imageUrl = productImages.length > 0 ? productImages[0].url : '';
 
         return (
-            <div className="px-2 my-3 bg-light rounded-3" key={cartItem.id}>
+            <div className="px-2 my-3 bg-light rounded-3" key={cartItem.id} style={{ width: '100%' }}>
                 <div className="container py-4">
                     <button onClick={() => handleClose(cartItem)} className="btn-close float-end" aria-label="Close"></button>
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center" style={{ width: '100%' }}>
+
                         <div className="col-md-4">
-                            <img src={imageUrl} alt={cartItem.name} height="200px" width="180px" />
+                            <img src={imageUrl} alt={cartItem.name} height="240px" width="280px" />
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-6">
                             <h3>{cartItem.name}</h3>
-                            <p className="lead fw-bold">${cartItem.price * cartItem.quantity}</p> {/* Updated to display the item's total price */}
+                            <p className="lead fw-bold">${cartItem.price * cartItem.quantity}</p>
+                            {/* Updated to display the item's total price */}
                         </div>
                     </div>
                 </div>
@@ -95,7 +98,7 @@ const Cart = () => {
     };
 
     return (
-        <div className="container"> {/* Add a container around the component */}
+        <div className="container" style={{ minHeight: "500px" }}> {/* Add a container around the component */}
             <div className="text-center mt-3">
                 <h2>Total Cart Quantity: {totalCartQuantity}</h2>
                 <div className="text-center">

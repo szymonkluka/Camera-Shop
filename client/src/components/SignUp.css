@@ -1,0 +1,170 @@
+.signin {
+  margin: 20px auto;
+  position: relative;
+  height: 575px;
+  max-width: 100%;
+  box-shadow: 0px 30px 125px -5px lightblue;
+  border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  /* Center the content horizontally */
+  align-items: center;
+  /* Center the content vertically */
+
+}
+
+.background-text {
+  position: absolute;
+  top: 10%;
+  /* You can adjust this value to position the text vertically inside the image */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 35px;
+  text-align: center;
+  width: 80%;
+  max-width: 700px;
+  z-index: 1;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+/*Background Img*/
+.back-img {
+  border-radius: 32px 32px 0 0;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 240px;
+  background: url('https://www.omnihotels.com/-/media/images/hotels/nycber/destinations/nyc-aerial-skyline.jpg?h=660&la=en&w=1170') no-repeat center center;
+  background-size: cover;
+
+}
+
+.layer {
+  border-radius: 32px 32px 0 0;
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(56, 241, 87, 0.5);
+}
+
+.active-green {
+  background-color: rgba(33, 150, 243, 0.5)
+}
+
+
+
+/*form-section*/
+.form-section {
+  margin-top: 240px;
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+}
+
+.sign-in-text {
+  position: absolute;
+  top: 184px;
+  left: 50%;
+  /* Move the sign-in-text to the horizontal center */
+  transform: translateX(-50%);
+  /* Center the sign-in-text horizontally */
+  display: flex;
+  justify-content: space-between;
+  /* Space the buttons evenly */
+  align-items: center;
+  height: 60px;
+  z-index: 1;
+}
+
+.sign-in-button,
+.log-in-button {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.actives {
+  background-color: blue;
+}
+
+.nonactive {
+  background-color: none;
+}
+
+.log-in-button.actives {
+  background-color: green;
+}
+
+.padding-top {
+  padding-top: 200px;
+}
+
+
+
+@media screen and (max-width: 1399px) and (min-width: 520px) {}
+
+/* Media query for screens smaller than 520px */
+@media screen and (max-width: 579px) {
+
+
+  .btn-custom {
+    width: 100px;
+    /* Adjust the width as needed */
+    font-size: 14px;
+    /* Adjust the font size as needed */
+  }
+
+  .signin {
+    margin: 20px auto;
+    position: relative;
+    max-width: 100%;
+    box-shadow: 0px 30px 125px -5px lightblue;
+    border-radius: 32px;
+    display: flex;
+    justify-content: center;
+    /* Center the content horizontally */
+    align-items: center;
+    /* Center the content vertically */
+
+  }
+
+  .signin2 {
+    margin: 20px auto;
+    position: relative;
+    height: 1260px;
+    max-width: 100%;
+    box-shadow: 0px 30px 125px -5px lightblue;
+    border-radius: 32px;
+    display: flex;
+    justify-content: center;
+    /* Center the content horizontally */
+    align-items: center;
+    /* Center the content vertically */
+
+  }
+
+  .sign-in-text {
+    position: absolute;
+    top: 174px;
+    left: 50%;
+    /* Move the sign-in-text to the horizontal center */
+    transform: translateX(-50%);
+    /* Center the sign-in-text horizontally */
+    display: flex;
+    justify-content: space-between;
+    /* Space the buttons evenly */
+    align-items: center;
+    height: 60px;
+    z-index: 1;
+  }
+
+
+}

@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Merriweather:wght@300&display=swap');
+
+
+body {
+  font-family: 'Merriweather', serif;
+}
+
+.photo-gear-text {
+  font-family: 'Merriweather', serif;
+  color: black;
+  font-weight: bold;
+
+}
+
 .custom-controls .carousel-control-prev-icon,
 .custom-controls .carousel-control-next-icon {
   height: 100px;
@@ -14,18 +28,19 @@
   display: none;
 }
 
-
-
 .custom-controls .carousel-control-next-icon:after {
   content: '>';
   font-size: 55px;
   color: red;
+  position: relative;
 }
 
 .custom-controls .carousel-control-next:hover .carousel-control-next-icon:after {
   content: '>';
   font-size: 55px;
   color: black;
+  position: relative;
+  top: 7px;
 }
 
 .custom-controls .carousel-control-next:hover .carousel-control-next-icon {
@@ -39,12 +54,15 @@
   content: '<';
   font-size: 55px;
   color: red;
+  position: relative;
 }
 
 .custom-controls .carousel-control-prev:hover .carousel-control-prev-icon:after {
   content: '<';
   font-size: 55px;
   color: black;
+  position: relative;
+  top: 7px;
 }
 
 .custom-controls .carousel-control-prev:hover .carousel-control-prev-icon {
@@ -112,16 +130,4 @@ carousel-item.active {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-
-@media (max-width: 879px) {
-  .carousel-item {
-    background-image: ('/assets/images/home/africa.jpg');
-  }
-}
-
-@media (min-width: 880px) {
-  .carousel-item {
-    background-image: ('/assets/images/home/purecolor.jpg');
-  }
 }
