@@ -12,3 +12,10 @@
     margin-right: auto;
   }
 }
+
+.bold-border {
+  border-width: 20px;
+  /* You can adjust the thickness as needed */
+  border-color: black;
+  /* You can use any color you prefer */
+}

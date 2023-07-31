@@ -13,6 +13,15 @@
 
 }
 
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-color: blue;
+}
+
 .background-text {
   position: absolute;
   top: 10%;

@@ -216,7 +216,7 @@ const Checkout = () => {
                             <div className="row g-3 col-xs-3">
                                 <div className="col-sm-6 col-md-6">
                                     <label htmlFor="firstName" className="form-label">First Name</label>
-                                    <input type="text" className="form-control" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                                    <input type="text" className="form-control bold-bolder" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
                                 </div>
 
                                 <div className="col-sm-6 col-md-6">

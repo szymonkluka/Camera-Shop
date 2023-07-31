@@ -160,10 +160,7 @@ const SignUp = () => {
                 // Handle successful login, such as storing the authentication token or redirecting the user
             })
         history.push('/delieverydetails')
-            .catch((error) => {
-                console.error('Login failed:', error);
-                // Perform error handling logic for failed login
-            });
+
     };
 
     return (
@@ -209,6 +206,7 @@ const SignUp = () => {
                                                 value={formData.username}
                                                 onChange={handleChange}
                                                 required
+                                                style={{ borderColor: "blue" }}
                                             />
                                         </div>
                                         <div className={`col-lg-12 col-md-12 col-sm-12 col-xs-12 ${isSignInActive ? '' : ''}`}>
@@ -223,6 +221,7 @@ const SignUp = () => {
                                                 value={formData.password}
                                                 onChange={handleChange}
                                                 required
+                                                style={{ borderColor: "blue" }}
                                             />
                                         </div>
 
