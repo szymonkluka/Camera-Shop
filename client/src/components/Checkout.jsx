@@ -110,7 +110,7 @@ const Checkout = () => {
             };
 
             // Send the order data to the server
-            fetch('http://localhost:8000/api/orders', {
+            fetch('https://photo-gear.onrender.com/api/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ const Checkout = () => {
                     });
 
                     // Send the order data to the email address
-                    fetch('http://localhost:8000/api/orders/send-email', {
+                    fetch('https://photo-gear.onrender.com/api/orders/send-email', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

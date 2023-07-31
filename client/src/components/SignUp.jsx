@@ -90,7 +90,7 @@ const SignUp = () => {
                 ...register,
             };
 
-            fetch('http://localhost:8000/api/auth/register', {
+            fetch('https://photo-gear.onrender.com/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ const SignUp = () => {
         // Perform login logic here, such as making an API request to authenticate the user
         // You can use a similar fetch approach as in the registration, but this time for login
         // For example:
-        fetch('http://localhost:8000/api/auth/login', {
+        fetch('https://photo-gear.onrender/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

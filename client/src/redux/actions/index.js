@@ -35,7 +35,7 @@ export const delItem = (product) => {
 export const fetchProducts = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get('http://localhost:8000/api/products')
+            const response = await axios.get('https://photo-gear.onrender.com/api/products')
             dispatch({
                 type: 'FETCH_PRODUCTS',
                 payload: response.data
@@ -51,7 +51,7 @@ export const fetchProducts = () => {
 export const fetchImages = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get('http://localhost:8000/api/images');
+            const response = await axios.get('https://photo-gear.onrender.com/api/images');
             const images = response.data; // Assuming the response data is an array of image URLs
             dispatch({
                 type: 'FETCH_IMAGES',
