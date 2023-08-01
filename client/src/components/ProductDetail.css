@@ -77,3 +77,32 @@
     margin-bottom: 20px;
   }
 }
+
+
+
+@media (max-width: 576px) {
+  .product-image {
+    height: 294px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 920px) {
+  .product-image {
+    height: 400px;
+    /* Set the height to 400px for screens between 577px and 920px */
+  }
+}
+
+@media (min-width: 921px) and (max-width: 1200px) {
+  .product-image {
+    height: 360px;
+    /* Set the height to 400px for screens between 577px and 920px */
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .product-image {
+    height: 400px;
+    /* Set the height to 400px for screens between 577px and 920px */
+  }
+}

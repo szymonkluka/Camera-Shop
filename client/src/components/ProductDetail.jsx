@@ -17,6 +17,7 @@ const ProductDetail = () => {
     const images = useSelector((state) => state.addItem.images);
     const [loading, setLoading] = useState(true);
     const carouselRef = useRef(null);
+    const isScreenBiggerThanWidth992 = window.innerWidth > 992;
 
     useEffect(() => {
         dispatch(fetchProducts()).then(() => setLoading(false));
@@ -124,7 +125,7 @@ const ProductDetail = () => {
                                                 src={image.url}
                                                 alt={product.name}
                                                 className="product-image"
-                                                style={{ objectFit: 'cover', width: '100%', height: '380px' }}
+
                                             />
                                         </div>
                                     ))}

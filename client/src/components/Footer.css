@@ -43,7 +43,7 @@ section {
   bottom: 0;
   font: bold 16px sans-serif;
   padding: 20px 50px;
-  height: 15.4vh;
+  height: 14vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -361,8 +361,6 @@ section {
   .footer-company-name {
     display: none;
   }
-
-
 
   .footer-distributed .footer-center {
     margin-right: 10px;

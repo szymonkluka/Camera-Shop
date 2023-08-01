@@ -83,7 +83,7 @@ const Home = () => {
 
     const getImageSource2 = () => {
         if (windowWidth < 600) {
-            return '/assets/images/home/canoneosbackground.jpeg';
+            return '/assets/images/home/canonbackgroundsmall.jpg';
         } else if (windowWidth < 880) {
             return '/assets/images/home/canonbackgroundimage.jpg';
         } else {
@@ -103,7 +103,7 @@ const Home = () => {
 
     const getImageSource4 = () => {
         if (windowWidth < 600) {
-            return '/assets/images/home/nikonbackground.jpg';
+            return '/assets/images/home/nikonbackground.png';
         } else if (windowWidth < 880) {
             return '/assets/images/home/packshot.jpg';
         } else {
