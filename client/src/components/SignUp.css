@@ -29,12 +29,12 @@
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 35px;
+  font-size: 28px;
   text-align: center;
   width: 80%;
   max-width: 700px;
   z-index: 1;
-  margin-top: 50px;
+  margin-top: 15px;
   font-weight: bold;
 }
 
@@ -110,6 +110,7 @@
 
 .log-in-button.actives {
   background-color: green;
+
 }
 
 .padding-top {
@@ -173,6 +174,12 @@
     align-items: center;
     height: 60px;
     z-index: 1;
+  }
+
+  .background-text {
+
+    font-size: 20px;
+
   }
 
 

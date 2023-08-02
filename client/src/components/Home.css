@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Merriweather:wght@300&display=swap');
 
-
 body {
   font-family: 'Merriweather', serif;
 }
@@ -9,7 +8,6 @@ body {
   font-family: 'Merriweather', serif;
   color: black;
   font-weight: bold;
-
 }
 
 .custom-controls .carousel-control-prev-icon,
@@ -73,31 +71,36 @@ body {
 }
 
 .custom-down-arrow {
+  /* Your existing styles here */
   height: auto;
   width: auto;
   outline: black;
   border: none;
   background: none;
-  margin-top: 0px;
-  padding-top: 0px;
-  margin-bottom: 30px;
-  padding-bottom: 30px;
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+  /* Add display: inline-block to respect margin and padding */
 }
 
-.custom-down-arrow.hidden {
-  display: none;
-}
-
-.discover.hidden {
-  display: none;
-}
-
-.custom-down-arrow:after {
-  margin-top: 0px;
-  padding-top: 0px;
-  content: '⬇️';
+.arrow-icon {
+  /* Set the position and spacing for the arrow */
   font-size: 65px;
-  margin-bottom: 25px;
+  color: rgb(7, 166, 220);
+  /* Set the arrow color to light blue */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+  margin: 0;
+}
+
+/* Add hover effect to change the color to green */
+.custom-down-arrow:hover .arrow-icon {
+  color: green;
 }
 
 .carousel-inner {
@@ -113,21 +116,82 @@ carousel-item.active {
 }
 
 .discover {
-  margin-bottom: -5px;
-  padding-bottom: -5px;
-  /* Adjust the desired margin value */
-}
-
-.custom-down-arrow {
-  margin-top: 0px;
-  padding-top: 0px;
-  margin-bottom: 20px;
-  padding-bottom: 60px;
-  /* Adjust the desired margin value */
+  margin-bottom: -25px;
 }
 
 .carousel-item {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+@media screen and (max-width: 520px) {
+  .arrow-icon {
+    /* Set the position and spacing for the arrow */
+    font-size: 35px;
+    color: rgb(7, 166, 220);
+    /* Set the arrow color to light blue */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin: 0;
+  }
+
+  .custom-controls .carousel-control-prev-icon,
+  .custom-controls .carousel-control-next-icon {
+    height: 60px;
+    width: 180px;
+    outline: black;
+    background-size: 100%, 100%;
+    border-radius: 90%;
+    border: 1px solid transparent;
+    /* Add transparent border */
+    background-image: none;
+  }
+
+  .custom-controls .carousel-control-next-icon:after {
+    content: '>';
+    font-size: 35px;
+    color: red;
+    position: relative;
+  }
+
+  .custom-controls .carousel-control-next:hover .carousel-control-next-icon:after {
+    content: '>';
+    font-size: 35px;
+    color: black;
+    position: relative;
+    top: 2px;
+  }
+
+  .custom-controls .carousel-control-next:hover .carousel-control-next-icon {
+    background-color: red;
+    border-color: red;
+    border: 1px solid black;
+    /* Add border on hover */
+  }
+
+  .custom-controls .carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 35px;
+    color: red;
+    position: relative;
+  }
+
+  .custom-controls .carousel-control-prev:hover .carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 35px;
+    color: black;
+    position: relative;
+    top: 2px;
+  }
+
+  .custom-controls .carousel-control-prev:hover .carousel-control-prev-icon {
+    background-color: red;
+    border-color: red;
+    border: 1px solid black;
+    /* Add border on hover */
+  }
 }

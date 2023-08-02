@@ -78,7 +78,11 @@
   }
 }
 
-
+@media (max-width: 516px) {
+  .product-image {
+    height: 150px;
+  }
+}
 
 @media (max-width: 576px) {
   .product-image {

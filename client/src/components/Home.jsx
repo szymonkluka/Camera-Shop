@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Product from './Product';
 import './Home.css';
 import { Element, animateScroll as scroll } from 'react-scroll';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleDown } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
     const [isButtonVisible, setIsButtonVisible] = useState(true);
@@ -155,7 +157,11 @@ const Home = () => {
             </div>
             <div className={`col-12 text-center ${isVisible ? '' : 'hidden'}`}>
                 <h2 className="discover">DISCOVER OUR PRODUCTS</h2>
-                <button className={`down-arrow custom-down-arrow ${isButtonVisible ? '' : 'hidden'}`} onClick={handleScrollToPixels}></button>
+                <button className={`down-arrow custom-down-arrow ${isButtonVisible ? '' : 'hidden'}`} onClick={handleScrollToPixels}>
+                    <span className="arrow-icon">
+                        <FontAwesomeIcon icon={faCircleDown} size="1x" className="arrow" />
+                    </span>
+                </button>
             </div>
             <Element name="productSection">
                 <Product />
