@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="footer-center">
                 <div className="icon-info2">
                     <i className="fa fa-phone"></i>
-                    <span style={{ marginRight: '30px' }}><p>Poland, Boryny 6/6, 70-017 Szczecin</p></span>
+                    <span style={{ marginRight: '30px' }}><p>Poland, Boryny 6/6, <span className="under">70-017 Szczecin</span></p></span>
                     <i className="fa fa-phone"></i>
                     <span style={{ marginRight: '30px' }}><p>+48508828424</p></span>
                     <i className="fa fa-envelope"></i>
@@ -21,10 +21,10 @@ const Footer = () => {
             </div>
             <div className="footer-right">
                 <div className="footer-icons">
-                    <a href="facebook.com"><i className="fa fa-facebook"></i></a>
+                    <a href="https://pl-pl.facebook.com/szymon.kluka"><i className="fa fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/szymon-kluka"><i className="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/szymonkluka"><i className="fa fa-github"></i></a>
                     <a href="twitter.com"><i className="fa fa-twitter"></i></a>
-                    <a href="linkedin.com"><i className="fa fa-linkedin"></i></a>
-                    <a href="github.com"><i className="fa fa-github"></i></a>
                 </div>
             </div>
         </footer>

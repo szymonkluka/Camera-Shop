@@ -171,7 +171,7 @@ const SignUp = () => {
                         <div className="background-text">
                             {isSignInActive
                                 ? 'Sign In to check your delivery progress and receive discount coupons'
-                                : 'Log in to check the status of your order'}
+                                : 'Log in to check the status of your order after signing in'}
                         </div>
                         <div className="sign-in-text">
                             <h2
