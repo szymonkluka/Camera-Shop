@@ -5,7 +5,7 @@ import './Checkout.css'
 
 
 const Checkout = () => {
-    const location = useLocation();
+    const location = useLocation()
     const totalPrice = location.state.totalPrice;
     const totalCartQuantity = location.state.totalCartQuantity;
     const cartItems = useSelector((state) => state.addItem.cartItems);
@@ -305,10 +305,8 @@ const Checkout = () => {
                                     <input type="text" className="form-control" id="cardCVV" name="cardCVV" value={formData.cardCVV} onChange={handleChange} required />
                                 </div>
                             </div>
-
-
                             <hr className="my-4" />
-                            <button className="w-100 btn btn-primary btn-lg" type="submit">Place Order</button>
+                            <button className="w-100 btn btn-primary btn-lg" type="submit" style={{ marginTop: "-50px" }}>Place Order</button>
                         </form>
                     </div>
                 </div>

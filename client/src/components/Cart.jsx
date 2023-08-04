@@ -34,14 +34,19 @@ const Cart = () => {
         const productImages = images ? images.filter((img) => img.productId === cartItem.id) : [];
         const imageUrl = productImages.length > 0 ? productImages[0].url : '';
 
+        const imageStyles = {
+            width: window.innerWidth <= 910 ? '230px' : '280px',
+            height: window.innerWidth <= 910 ? '190px' : '240px',
+            marginRight: window.innerWidth <= 910 ? '20px' : '0px'
+        };
+
         return (
             <div className="px-2 my-3 bg-light rounded-3" key={cartItem.id} style={{ width: '100%' }}>
                 <div className="container py-4">
                     <button onClick={() => handleClose(cartItem)} className="btn-close float-end" aria-label="Close"></button>
                     <div className="row justify-content-center" style={{ width: '100%' }}>
-
-                        <div className="col-md-4">
-                            <img src={imageUrl} alt={cartItem.name} height="240px" width="280px" />
+                        <div className={`col-md-4 col-sm-3 ${window.innerWidth <= 910 ? 'image-container-small' : ''}`}>
+                            <img src={imageUrl} alt={cartItem.name} style={imageStyles} />
                         </div>
                         <div className="col-md-6">
                             <h3>{cartItem.name}</h3>
@@ -87,22 +92,29 @@ const Cart = () => {
     };
 
     const button = () => {
+        const isScreenSmallerThan400 = window.innerWidth < 400; // Check if the screen width is smaller than 400px
+
         return (
             <div className="text-center mt-3">
                 <h2>Total Value of Order: ${totalPrice}</h2>
-                <Link to={{ pathname: '/checkout', state: { totalPrice: totalPrice, totalCartQuantity: totalCartQuantity } }} className="btn btn-outline-primary mb-5 w-25 mx-auto">
+                <Link
+                    to={{ pathname: '/checkout', state: { totalPrice: totalPrice, totalCartQuantity: totalCartQuantity } }}
+                    className={`btn btn-outline-primary mb-12 w-50 mx-auto ${isScreenSmallerThan400 ? 'custom-button-small' : 'custom-button'}`}
+                // Use 'custom-button-small' class if the screen is smaller than 400px, otherwise use 'custom-button' class
+                >
                     Proceed To checkout
                 </Link>
             </div>
         );
     };
 
+
     return (
-        <div className="container" style={{ minHeight: "500px" }}> {/* Add a container around the component */}
+        <div className="container" style={{ minHeight: "500px" }}>
             <div className="text-center mt-3">
                 <h2>Total Cart Quantity: {totalCartQuantity}</h2>
                 <div className="text-center">
-                    {cartItems.length > 0 && button()} {/* Place the button here */}
+                    {cartItems.length > 0 && button()}
                     <ul className="list-group-item mb-3">
                         {cartItems.length > 0 ? cartItems.map(itemList) : <li className="list-group-item">No items in the cart</li>}
                     </ul>

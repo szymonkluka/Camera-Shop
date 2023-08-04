@@ -2,3 +2,28 @@
   list-style: none;
   /* Remove the bullets */
 }
+
+/* Styles for the custom button */
+.custom-button {
+  /* Default width for the button */
+  width: 25%;
+  /* Change this value to adjust the default width */
+}
+
+/* Styles for the button when the screen is smaller than 400px */
+@media screen and (max-width: 400px) {
+  .custom-button-small {
+    /* Width for the button when the screen is smaller than 400px */
+    width: 200px;
+    /* Change this value to set the width for smaller screens */
+  }
+}
+
+
+@media screen and (max-width: 910px) {
+  .image-container-small {
+    /* Width and height for the image when the screen is smaller than or equal to 910px */
+    width: 230px;
+    height: 190px;
+  }
+}
