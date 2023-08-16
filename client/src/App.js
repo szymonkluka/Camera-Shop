@@ -13,6 +13,7 @@ import Checkout from './components/Checkout';
 import ThankYou from './components/ThankYou';
 import ThankYouRegister from './components/ThankYouRegister';
 import DelieveryDetails from './components/DelieveryDetails';
+import BestSellers from './components/BestSellers';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/bestsellers" component={BestSellers} />
         <Route exact path="/products" component={Product} />
         <Route exact path="/products/:id" component={ProductDetail} />
         <Route exact path="/cart" component={Cart} />

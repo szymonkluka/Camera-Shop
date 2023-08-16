@@ -7,6 +7,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './ProductDetail.css';
 import Footer from './Footer';
+import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -88,93 +89,95 @@ const ProductDetail = () => {
 
     return (
         <>
-            <div className="container my-5 py-4">
+            <div>
+                <div className="container my-5 py-4">
 
-                <div className="row">
-                    <div className={`col-md-${window.innerWidth <= 991 && window.innerWidth >= 768 ? '12' : '5'}`} style={{ marginRight: '80px' }}>
-                        <div className="mt-2 d-flex flex-wrap position-relative" style={{ marginRight: '5px', paddingRight: '10px' }}>
-                            <div className="hover-effect" ref={carouselRef}>
-                                <Carousel
-                                    showThumbs={false}
-                                    showArrows={true}
-                                    showStatus={true}
-                                    infiniteLoop={true}
-                                    autoPlay={true}
-                                    interval={3000}
-                                    width="95%"
-                                    className="carousel"
-                                    renderArrowPrev={(onClickHandler, hasPrev, label) =>
-                                        hasPrev && (
-                                            <button className="custom-carousel-prev-arrow custom-controls carousel-control-prev" onClick={onClickHandler}>
-                                                <span className="custom-arrow-icon">&lt;</span>
-                                            </button>
-                                        )
-                                    }
-                                    renderArrowNext={(onClickHandler, hasNext, label) =>
-                                        hasNext && (
-                                            <button className="custom-carousel-next-arrow custom-controls carousel-control-next" onClick={onClickHandler}>
-                                                <span className="custom-arrow-icon">&gt;</span>
-                                            </button>
-                                        )
-                                    }
+                    <div className="row" style={{ maxHeight: '96%' }}>
+                        <div className={`col-md-${window.innerWidth <= 991 && window.innerWidth >= 768 ? '12' : '5'}`} style={{ marginRight: '80px' }}>
+                            <div className="mt-2 d-flex flex-wrap position-relative" style={{ marginRight: '5px', paddingRight: '10px' }}>
+                                <div className="hover-effect" ref={carouselRef}>
+                                    <Carousel
+                                        showThumbs={false}
+                                        showArrows={true}
+                                        showStatus={true}
+                                        infiniteLoop={true}
+                                        autoPlay={true}
+                                        interval={3000}
+                                        max-width="95%"
+                                        className="carousel"
+                                        renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                                            hasPrev && (
+                                                <button className="custom-carousel-prev-arrow custom-controls carousel-control-prev" onClick={onClickHandler}>
+                                                    <span className="custom-arrow-icon">&lt;</span>
+                                                </button>
+                                            )
+                                        }
+                                        renderArrowNext={(onClickHandler, hasNext, label) =>
+                                            hasNext && (
+                                                <button className="custom-carousel-next-arrow custom-controls carousel-control-next" onClick={onClickHandler}>
+                                                    <span className="custom-arrow-icon">&gt;</span>
+                                                </button>
+                                            )
+                                        }
 
-                                >
-                                    {imageUnderDescription.map((image) => (
-                                        <div key={image.id}>
-                                            <img
-                                                src={image.url}
-                                                alt={product.name}
-                                                className="product-image"
+                                    >
+                                        {imageUnderDescription.map((image) => (
+                                            <div key={image.id}>
+                                                <img
+                                                    src={image.url}
+                                                    alt={product.name}
+                                                    className="product-image"
 
-                                            />
-                                        </div>
-                                    ))}
-                                </Carousel>
+                                                />
+                                            </div>
+                                        ))}
+                                    </Carousel>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-6">
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <h3 style={{ marginLeft: '10px' }}>{product.name}</h3>
-                            <p style={{ marginLeft: '10px' }}>{product.description}</p>
-                            <h5 className="mt-1" style={{ marginLeft: '10px' }}>Price: {product.price}</h5>
-                            <h5 className="mt-2" style={{ marginLeft: '10px' }}>Quantity: {productQuantity}</h5>
-                            <div className="d-flex justify-content-center">
-                                <button
-                                    onClick={() => handleDecreaseQuantity(product)}
-                                    className="btn btn-outline-primary btn-sm me-3 d-flex flex-column"
-                                >
-                                    -
-                                </button>
-                                <span className="me-3">{productQuantity}</span>
-                                <button
-                                    onClick={() => handleIncreaseQuantity(product)}
-                                    className="btn btn-outline-primary btn-sm d-flex flex-column"
-                                >
-                                    +
-                                </button>
-                            </div>
-                            <div className="d-flex flex-column align-items-center">
-                                <button
-                                    onClick={() => handleCart(product)}
-                                    className="btn btn-primary btn-sm mt-3 smaller-button"
-                                    style={{ width: '300px' }}
-                                >
-                                    {cartBtn}
-                                </button>
-                                <button
-                                    onClick={handleSummaryCart}
-                                    className="btn btn-success btn-sm mt-3 smaller-button"
-                                    style={{ width: '300px', marginBottom: '20px' }}
-                                >
-                                    {summaryBtn}
-                                </button>
+                        <div className="col-md-6">
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <h3 style={{ marginLeft: '10px' }}>{product.name}</h3>
+                                <p style={{ marginLeft: '10px' }}>{product.description}</p>
+                                <h5 className="mt-1" style={{ marginLeft: '10px' }}>Price: {product.price}</h5>
+                                <h5 className="mt-2" style={{ marginLeft: '10px' }}>Quantity: {productQuantity}</h5>
+                                <div className="d-flex justify-content-center">
+                                    <button
+                                        onClick={() => handleDecreaseQuantity(product)}
+                                        className="btn btn-outline-primary btn-sm me-3 d-flex flex-column"
+                                    >
+                                        -
+                                    </button>
+                                    <span className="me-3">{productQuantity}</span>
+                                    <button
+                                        onClick={() => handleIncreaseQuantity(product)}
+                                        className="btn btn-outline-primary btn-sm d-flex flex-column"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div className="d-flex flex-column align-items-center">
+                                    <button
+                                        onClick={() => handleCart(product)}
+                                        className="btn btn-primary btn-sm mt-3 smaller-button"
+                                        style={{ width: '300px' }}
+                                    >
+                                        <span style={{ color: 'white', fontWeight: 'bold' }}>{cartBtn}</span>
+                                    </button>
+                                    <button
+                                        onClick={handleSummaryCart}
+                                        className="btn btn-success btn-sm mt-3 smaller-button"
+                                        style={{ width: '300px', marginBottom: '20px' }}
+                                    >
+                                        <span style={{ color: 'white', fontWeight: 'bold' }}>{summaryBtn}</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <Footer className="footer" />
             </div>
-            <Footer />
         </>
     );
 };

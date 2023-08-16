@@ -25,7 +25,7 @@ const ThankYou = () => {
             <h1 className="text-primary fw-bold mb-4">Thank you for your order!</h1>
           </div>
           <div className="d-flex justify-content-center" style={{ marginBottom: '40px' }}>
-            <img src="/assets/images/thankyou.jpg" alt="About Us" height="350px" width="500px" />
+            <img src="/assets/images/thankyou.jpg" alt="About Us" height="350px" width="500px" style={{ borderRadius: '32px', boxShadow: '10px 10px 10px -5px rgba(0, 0, 0, 0.3)' }} />
           </div>
           <table>
             <tr>

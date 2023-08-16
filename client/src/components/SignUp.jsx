@@ -171,7 +171,7 @@ const SignUp = () => {
                         <div className="background-text">
                             {isSignInActive
                                 ? 'Sign In to check your delivery progress and receive discount coupons'
-                                : 'Log in to check the status of your order after signing in'}
+                                : 'Log in to check the status of your order after signing in and making a purchase'}
                         </div>
                         <div className="sign-in-text">
                             <h2
@@ -390,11 +390,11 @@ const SignUp = () => {
 
                             <hr className="my-4" />
                             <button
-                                className={`btn btn-primary btn-lg ${isSignInActive ? 'actives' : 'nonactive'} btn-custom`}
+                                className={`btn btn-success btn-lg ${isSignInActive ? 'actives' : 'nonactive'} btn-custom`}
                                 type="submit"
                                 style={{ marginTop: "-15px" }}
                             >
-                                {isSignInActive ? 'Register' : 'Login'}
+                                <span style={{ color: 'white' }}>{isSignInActive ? 'Register' : 'Login'}</span>
                             </button>
 
                         </form>

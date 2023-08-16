@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CartBtn from './buttons/CartBtn';
 import Signup from './buttons/SignupBtn';
 import './Header.css';
-
+import './custom-themes.scss';
 
 const Header = () => {
     const handleHomeClick = () => {
@@ -14,9 +14,9 @@ const Header = () => {
     };
 
     return (
-        <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid py-2">
+        <nav className="navbar navbar-expand-lg navbar-light bg-info">
+            <div className="container-fluid py-2 d-flex justify-content-between">
+                <div>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -25,45 +25,45 @@ const Header = () => {
                         aria-controls="navbarSupportedContent"
                         aria-expanded="false"
                         aria-label="Toggle navigation"
-                    > Menu
+                    >
+                        Menu
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-1 custom-nav">
-                            <li className="nav-item">
-                                <NavLink
-                                    className="nav-link"
-                                    exact
-                                    aria-current="page"
-                                    to="/"
-                                    onClick={handleHomeClick}
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/products">
-                                    Products
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/about">
-                                    About
-                                </NavLink>
-                            </li>
+                            <NavItem to="/" text="Home" />
+                            <NavItem to="/products" text="Products" />
+                            <NavItem to="/about" text="About" />
                         </ul>
-                        <div className="header-center">
-                            <NavLink className="photo-gear-text" to="/">
-                                PHOTO GEAR
-                            </NavLink>
-                        </div>
-                        <Signup className="btn-container" />
-                        <CartBtn className="btn-container" />
-
                     </div>
                 </div>
-            </nav>
-        </>
+                <div className="header-center">
+                    <NavLink className="photo-gear-text text-center" to="/">
+                        <span className="red">PHOTO</span>
+                        <span className="black">GEAR</span>
+                    </NavLink>
+                </div>
+                <div className="btn-container d-flex align-items-center">
+                    <Signup className="me-3" />
+                    <CartBtn />
+                </div>
+            </div>
+        </nav>
+    );
+};
+
+const NavItem = ({ to, text }) => {
+    return (
+        <li className="nav-item">
+            <NavLink
+                className="nav-link"
+                exact
+                to={to}
+                activeClassName="active-link" // Apply this class when the link is active
+            >
+                {text}
+            </NavLink>
+        </li>
     );
 };
 

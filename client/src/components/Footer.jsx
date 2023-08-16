@@ -21,9 +21,9 @@ const Footer = () => {
             </div>
             <div className="footer-right">
                 <div className="footer-icons">
-                    <a href="https://pl-pl.facebook.com/szymon.kluka"><i className="fa fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/in/szymon-kluka"><i className="fa fa-linkedin"></i></a>
-                    <a href="https://github.com/szymonkluka"><i className="fa fa-github"></i></a>
+                    <a href="https://pl-pl.facebook.com/szymon.kluka" target="blank"><i className="fa fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/szymon-kluka" target="blank"><i className="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/szymonkluka" target="blank"><i className="fa fa-github"></i></a>
                     <a href="twitter.com"><i className="fa fa-twitter"></i></a>
                 </div>
             </div>

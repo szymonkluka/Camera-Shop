@@ -42,12 +42,14 @@ section {
   /* Remove position: fixed; */
   bottom: 0;
   font: bold 16px sans-serif;
-  padding: 20px 50px;
-  height: 14vh;
+  padding: 18px 50px;
+  height: 13vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: -20px;
 }
+
 
 
 .footer-distributed .footer-left,
@@ -70,13 +72,14 @@ section {
 /* The company logo */
 
 .footer-distributed h3 {
-  color: #ffffff;
-  font: normal 36px 'Open Sans', cursive;
+  color: rgb(186, 23, 23);
+  font: bold 36px 'Open Sans', cursive;
   margin: 0;
 }
 
 .footer-distributed h3 span {
-  color: lightseagreen;
+  font: bold 36px 'Open Sans', cursive;
+  color: black
 }
 
 /* Footer links */

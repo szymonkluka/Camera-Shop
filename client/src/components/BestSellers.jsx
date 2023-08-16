@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts, fetchImages } from '../redux/actions';
 import Footer from './Footer';
 
-const Product = () => {
+const BestSellers = () => {
     const products = useSelector((state) => state.addItem.products);
     const images = useSelector((state) => state.addItem.images);
     const dispatch = useDispatch();
@@ -37,13 +37,13 @@ const Product = () => {
             <div className="container py-1" style={{ marginTop: '70px' }}>
                 <div className="row">
                     <div className="col-12 text-center">
-                        <h1>ALL PRODUCTS</h1>
+                        <h1>BEST SELLERS</h1>
                     </div>
                 </div>
             </div>
             <div className="container">
                 <div className="row justify-content-around">
-                    {products && products.map(cardItem)} {/* Add conditional check before rendering products */}
+                    {products && products.slice(-8).map(cardItem)} {/* Add conditional check before rendering products */}
                 </div>
             </div>
             <Footer />
@@ -51,4 +51,4 @@ const Product = () => {
     );
 };
 
-export default Product;
+export default BestSellers;

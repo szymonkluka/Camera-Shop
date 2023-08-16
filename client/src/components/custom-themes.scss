@@ -1,0 +1,25 @@
+$primary: #4433cc;
+$secondary: #6f42c1;
+$success: #00b74a;
+$info: #f5f5f5;
+$warning: #33b5e5;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Override the theme colors map
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
+
+@warn "Deprecated warning for divide() suppressed";
+@import "~bootstrap/scss/bootstrap";
+
+$warn-when-deprecated: false;

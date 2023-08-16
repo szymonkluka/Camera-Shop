@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Product from './Product';
+import BestSellers from './BestSellers';
 import './Home.css';
 import { Element, animateScroll as scroll } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -114,7 +115,14 @@ const Home = () => {
     };
 
     const handleScrollToPixels = () => {
-        scroll.scrollTo(630, {
+        let scrollPosition = 630; // Default scroll position
+
+        if (windowWidth < 500) {
+            // If window width is smaller than 500px, scroll further
+            scrollPosition = 720; // Adjust the value as needed
+        }
+
+        scroll.scrollTo(scrollPosition, {
             duration: 500,
             delay: 0,
             smooth: 'easeInOutQuart',
@@ -156,7 +164,7 @@ const Home = () => {
                 </div>
             </div>
             <div className={`col-12 text-center ${isVisible ? '' : 'hidden'}`}>
-                <h2 className="discover">DISCOVER OUR PRODUCTS</h2>
+                <h2 className="discover">DISCOVER OUR BEST SELLERS</h2>
                 <button className={`down-arrow custom-down-arrow ${isButtonVisible ? '' : 'hidden'}`} onClick={handleScrollToPixels}>
                     <span className="arrow-icon">
                         <FontAwesomeIcon icon={faCircleDown} size="1x" className="arrow" />
@@ -164,7 +172,7 @@ const Home = () => {
                 </button>
             </div>
             <Element name="productSection">
-                <Product />
+                <BestSellers />
             </Element>
         </div>
     );
