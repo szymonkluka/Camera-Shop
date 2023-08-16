@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts, fetchImages } from '../redux/actions';
-import Footer from './Footer';
+import { fetchProducts, fetchImages } from '../../redux/actions';
+import Footer from '../Footer';
 
 const BestSellers = () => {
     const products = useSelector((state) => state.addItem.products);

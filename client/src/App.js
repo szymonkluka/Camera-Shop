@@ -4,16 +4,16 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
-import About from './components/About';
+import About from './components/About/About';
 import Product from './components/Product';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import SignUp from './components/SignUp';
 import Checkout from './components/Checkout';
-import ThankYou from './components/ThankYou';
-import ThankYouRegister from './components/ThankYouRegister';
+import ThankYou from './components/ThankYou/ThankYou';
+import ThankYouRegister from './components/ThankYouRegister/ThankYouRegister';
 import DelieveryDetails from './components/DelieveryDetails';
-import BestSellers from './components/BestSellers';
+import BestSellers from './components/BestSellers/BestSellers';
 
 function App() {
   return (

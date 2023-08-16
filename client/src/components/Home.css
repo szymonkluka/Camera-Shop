@@ -10,6 +10,11 @@ body {
   font-weight: bold;
 }
 
+.carousel-item-container {
+  max-width: 99%;
+  max-height: 99%;
+}
+
 .custom-controls .carousel-control-prev-icon,
 .custom-controls .carousel-control-next-icon {
   height: 100px;
@@ -193,5 +198,33 @@ carousel-item.active {
     border-color: red;
     border: 1px solid black;
     /* Add border on hover */
+  }
+}
+
+
+@media (max-width: 600px) {
+  .hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 420px) {
+  .discover {
+    margin-bottom: 20px;
+  }
+
+  .custom-down-arrow {
+    /* Your existing styles here */
+    height: auto;
+    width: auto;
+    outline: black;
+    border: none;
+    background: none;
+    margin-top: 0;
+    margin-bottom: 100px;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+    /* Add display: inline-block to respect margin and padding */
   }
 }

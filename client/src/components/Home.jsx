@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Product from './Product';
-import BestSellers from './BestSellers';
+import BestSellers from './BestSellers/BestSellers';
 import './Home.css';
 import { Element, animateScroll as scroll } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -52,7 +52,7 @@ const Home = () => {
             setIsButtonVisible(scrollPosition < scrollThreshold);
 
             // Update the visibility and height states for the content to hide
-            const heightToHideFrom = 50;
+            const heightToHideFrom = 100;
             setHeight(scrollPosition);
 
             if (scrollPosition > heightToHideFrom) {
@@ -72,7 +72,7 @@ const Home = () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleWindowResize);
         };
-    }, [carouselButtonClicked]); // Dependency array with carouselButtonClicked ensures the effect runs when the button is clicked
+    }, [carouselButtonClicked, isVisible]); // Dependency array with carouselButtonClicked ensures the effect runs when the button is clicked
 
     const getImageSource = () => {
         if (windowWidth < 600) {
@@ -142,7 +142,7 @@ const Home = () => {
                     <div className="carousel-item active">
                         <img src={getImageSource3()} className="d-block w-100" alt="camera" height="500px" />
                     </div>
-                    <div className="carousel-item">
+                    <div className="carousel-item carousel-item-container">
                         <img src={getImageSource4()} className="d-block w-100" alt="camera" height="500px" />
                     </div>
                     <div className="carousel-item">
