@@ -37,7 +37,7 @@
   transform: translateY(-50%);
   background-color: blue !important;
   border-radius: 50%;
-  opacity: 1.0;
+  opacity: 0.8;
 }
 
 .custom-carousel-prev-arrow:hover,
@@ -53,7 +53,7 @@
   height: 47px;
   width: 47px;
   font-weight: bold;
-  opacity: 1.0;
+  opacity: 0.8;
 }
 
 .custom-arrow-icon:hover {
@@ -95,21 +95,16 @@
 
 @media (max-width: 516px) {
   .product-image {
-    max-height: 99%;
-    max-width: 99%;
+    max-height: 85%;
+    max-width: 85%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 520px) and (max-width: 920px) {
   .product-image {
-    max-height: 99%;
-    max-width: 99%;
-  }
-}
-
-@media (min-width: 577px) and (max-width: 920px) {
-  .product-image {
-    height: 400px;
+    height: 380px;
     /* Set the height to 400px for screens between 577px and 920px */
   }
 }

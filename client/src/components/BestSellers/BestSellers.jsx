@@ -34,13 +34,7 @@ const BestSellers = () => {
 
     return (
         <div>
-            <div className="container py-1" style={{ marginTop: '70px' }}>
-                <div className="row">
-                    <div className="col-12 text-center">
-                        <h1>BEST SELLERS</h1>
-                    </div>
-                </div>
-            </div>
+
             <div className="container">
                 <div className="row justify-content-around">
                     {products && products.slice(-8).map(cardItem)} {/* Add conditional check before rendering products */}

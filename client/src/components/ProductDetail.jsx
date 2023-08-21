@@ -105,29 +105,27 @@ const ProductDetail = () => {
                                         interval={3000}
                                         max-width="95%"
                                         className="carousel"
-                                        renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                                        renderArrowPrev={(onClickHandler, hasPrev, label) => (
                                             hasPrev && (
                                                 <button className="custom-carousel-prev-arrow custom-controls carousel-control-prev" onClick={onClickHandler}>
                                                     <span className="custom-arrow-icon">&lt;</span>
                                                 </button>
                                             )
-                                        }
-                                        renderArrowNext={(onClickHandler, hasNext, label) =>
+                                        )}
+                                        renderArrowNext={(onClickHandler, hasNext, label) => (
                                             hasNext && (
                                                 <button className="custom-carousel-next-arrow custom-controls carousel-control-next" onClick={onClickHandler}>
                                                     <span className="custom-arrow-icon">&gt;</span>
                                                 </button>
                                             )
-                                        }
-
+                                        )}
                                     >
                                         {imageUnderDescription.map((image) => (
-                                            <div key={image.id}>
+                                            <div key={image.id} className="overlay-container">
                                                 <img
                                                     src={image.url}
                                                     alt={product.name}
                                                     className="product-image"
-
                                                 />
                                             </div>
                                         ))}

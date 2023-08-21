@@ -2,6 +2,213 @@
 
 body {
   font-family: 'Merriweather', serif;
+  background-color: rgba(233, 237, 242, 0.141);
+}
+
+.photo-gear-text {
+  font-family: 'Merriweather', serif;
+  color: black;
+  font-weight: bold;
+}
+
+.custom-controls .carousel-control-prev-icon,
+.custom-controls .carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  /* Add transparent border */
+  background-image: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.custom-controls .carousel-control-next-icon:after {
+  content: '>';
+  font-size: 55px;
+  color: red;
+  position: relative;
+}
+
+.custom-controls .carousel-control-next:hover .carousel-control-next-icon:after {
+  content: '>';
+  font-size: 55px;
+  color: black;
+  position: relative;
+  top: 7px;
+}
+
+.custom-controls .carousel-control-next:hover .carousel-control-next-icon {
+  background-color: red;
+  border-color: red;
+  border: 1px solid black;
+  /* Add border on hover */
+}
+
+.custom-controls .carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: red;
+  position: relative;
+}
+
+.custom-controls .carousel-control-prev:hover .carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: black;
+  position: relative;
+  top: 7px;
+}
+
+.custom-controls .carousel-control-prev:hover .carousel-control-prev-icon {
+  background-color: red;
+  border-color: red;
+  border: 1px solid black;
+  /* Add border on hover */
+}
+
+.custom-down-arrow {
+  /* Your existing styles here */
+  height: auto;
+  width: auto;
+  outline: black;
+  border: none;
+  background: none;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding-bottom: 20px;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+  /* Add display: inline-block to respect margin and padding */
+}
+
+.arrow-icon {
+  /* Set the position and spacing for the arrow */
+  font-size: 65px;
+  color: rgb(7, 166, 220);
+  /* Set the arrow color to light blue */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 40px;
+  margin: 0;
+}
+
+/* Add hover effect to change the color to green */
+.custom-down-arrow:hover .arrow-icon {
+  color: green;
+}
+
+.carousel-inner {
+  transition: 0.5s ease-in-out;
+}
+
+carousel-item {
+  display: none;
+}
+
+carousel-item.active {
+  display: block;
+}
+
+.discover {
+  margin-bottom: 10px;
+}
+
+.carousel-item {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (max-width: 520px) {
+  .arrow-icon {
+    /* Set the position and spacing for the arrow */
+    font-size: 35px;
+    color: rgb(7, 166, 220);
+    /* Set the arrow color to light blue */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin: 0;
+  }
+
+  .custom-controls .carousel-control-prev-icon,
+  .custom-controls .carousel-control-next-icon {
+    height: 60px;
+    width: 180px;
+    outline: black;
+    background-size: 100%, 100%;
+    border-radius: 90%;
+    border: 1px solid transparent;
+    /* Add transparent border */
+    background-image: none;
+  }
+
+  .custom-controls .carousel-control-next-icon:after {
+    content: '>';
+    font-size: 35px;
+    color: red;
+    position: relative;
+  }
+
+  .custom-controls .carousel-control-next:hover .carousel-control-next-icon:after {
+    content: '>';
+    font-size: 35px;
+    color: black;
+    position: relative;
+    top: 2px;
+  }
+
+  .custom-controls .carousel-control-next:hover .carousel-control-next-icon {
+    background-color: red;
+    border-color: red;
+    border: 1px solid black;
+    /* Add border on hover */
+  }
+
+  .custom-controls .carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 35px;
+    color: red;
+    position: relative;
+  }
+
+  .custom-controls .carousel-control-prev:hover .carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 35px;
+    color: black;
+    position: relative;
+    top: 2px;
+  }
+
+  .custom-controls .carousel-control-prev:hover .carousel-control-prev-icon {
+    background-color: red;
+    border-color: red;
+    border: 1px solid black;
+    /* Add border on hover */
+  }
+}
+
+
+@media (max-width: 600px) {
+  .hidden {
+    display: none;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Merriweather:wght@300&display=swap');
+
+body {
+  font-family: 'Merriweather', serif;
 }
 
 .photo-gear-text {
@@ -208,9 +415,10 @@ carousel-item.active {
   }
 }
 
-@media (min-width: 390px) and (max-width: 420px) {
+@media (min-width: 360px) and (max-width: 391px) {
   .discover {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: -20px;
   }
 
   .custom-down-arrow {
@@ -221,10 +429,52 @@ carousel-item.active {
     border: none;
     background: none;
     margin-top: 0;
-    margin-bottom: 100px;
+    margin-bottom: 160px;
     padding: 0;
     position: relative;
     display: inline-block;
     /* Add display: inline-block to respect margin and padding */
+  }
+}
+
+@media (min-width: 392px) and (max-width: 420px) {
+  .discover {
+    margin-top: 10px;
+    margin-bottom: 45px;
+  }
+
+  .custom-down-arrow {
+    /* Your existing styles here */
+    height: auto;
+    width: auto;
+    outline: black;
+    border: none;
+    background: none;
+    margin-top: 0;
+    margin-bottom: 160px;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+    /* Add display: inline-block to respect margin and padding */
+  }
+
+  /* Apply specific styling for all carousel items */
+  .carousel-inner .carousel-item {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 80% !important;
+    max-height: 80% !important;
+    background-color: white !important;
+  }
+}
+
+@media (max-width: 550px) {
+
+  /* Apply specific styling for all carousel items */
+  .carousel-inner .carousel-item img {
+    height: 90% !important;
+    max-height: 90% !important;
+    background-color: white !important;
   }
 }
